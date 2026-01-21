@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Whising's Weather Dashboard</title>
+</head>
+
+<body>
+    <div class="mobile-controls-container">
+        <div class="mobile-header">
+            <h1 class="app-title">Weather Dashboard</h1>
+            <div class="header-controls">
+                <button id="themeBtn" class="theme-btn mobile-btn" title="Toggle Theme">
+                    <i class='bx bx-moon' id="themeIcon"></i>
+                </button>
+                <button class="color-picker-btn mobile-btn" id="colorPickerBtn" title="Color Settings">
+                    <i class='bx bx-palette'></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="color-modal" id="colorModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Customize Colors</h3>
+                <button class="close-modal" id="closeModal">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+            <div class="color-options">
+                <div class="color-option">
+                    <label>Button Color</label>
+                    <input type="color" id="primaryColor" value="#303f9f">
+                    <span class="color-preview" id="primaryPreview"></span>
+                </div>
+                <div class="color-option">
+                    <label>Accent Color</label>
+                    <input type="color" id="secondaryColor" value="#5c6bc0">
+                    <span class="color-preview" id="secondaryPreview"></span>
+                </div>
+            </div>
+            <button class="reset-btn" id="resetColors">
+                <i class='bx bx-reset'></i> Reset to Default
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left-info">
+            <div class="pic-gradient"></div>
+            <div class="today-info">
+                <h2>Wednesday</h2>
+                <span class="date">21 January 2026</span>
+                <div class="location">
+                    <i class='bx bx-current-location'></i>
+                    <span>India, IN</span>
+                </div>
+            </div>
+            <div class="today-weather">
+                <i class='bx bx-sun weather-icon'></i>
+                <h1 class="weather-temp">
+                    25°C
+                </h1>
+                <h3 class="weather-desc">Sunny</h3>
+            </div>
+        </div>
+
+        <div class="right-info">
+            <div class="day-info">
+                <div class="weather-stats">
+                    <div class="stat">
+                        <span class="title">PRECIPITATION</span>
+                        <span class="value">0 %</span>
+                    </div>
+                    <div class="stat">
+                        <span class="title">HUMIDITY</span>
+                        <span class="value">0 %</span>
+                    </div>
+                    <div class="stat">
+                        <span class="title">WIND SPEED</span>
+                        <span class="value">0 km/h</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forecast-section">
+                <h3 class="section-title">5-Day Forecast</h3>
+                <ul class="days-list">
+                    <li class="day-item">
+                        <i class='bx bx-cloud'></i>
+                        <span class="day-name">Sat</span>
+                        <span class="day-temp">0°C</span>
+                    </li>
+                    <li class="day-item">
+                        <i class='bx bx-sun'></i>
+                        <span class="day-name">Sun</span>
+                        <span class="day-temp">0°C</span>
+                    </li>
+                    <li class="day-item">
+                        <i class='bx bx-cloud-rain'></i>
+                        <span class="day-name">Mon</span>
+                        <span class="day-temp">0°C</span>
+                    </li>
+                    <li class="day-item">
+                        <i class='bx bx-cloud-drizzle'></i>
+                        <span class="day-name">Tue</span>
+                        <span class="day-temp">0°C</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="btn-container">
+                <button class="loc-button">
+                    <i class='bx bx-search-alt-2'></i>
+                    <span>Search Location</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
