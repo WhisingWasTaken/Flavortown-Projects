@@ -5,21 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <title>Whising's Weather Dashboard</title>
+    <title>Whising's Custom Weather Dashboard</title>
 </head>
 
 <body>
-    <div class="mobile-controls-container">
-        <div class="mobile-header">
-            <h1 class="app-title">Weather Dashboard</h1>
-            <div class="header-controls">
-                <button id="themeBtn" class="theme-btn mobile-btn" title="Toggle Theme">
-                    <i class='bx bx-moon' id="themeIcon"></i>
-                </button>
-                <button class="color-picker-btn mobile-btn" id="colorPickerBtn" title="Color Settings">
-                    <i class='bx bx-palette'></i>
-                </button>
+    <div class="desktop-controls">
+        <button id="themeBtn" class="theme-btn" title="Toggle Theme">
+            <i class='bx bx-moon' id="themeIcon"></i>
+        </button>
+        <button class="color-picker-btn" id="colorPickerBtn" title="Color Settings">
+            <i class='bx bx-palette'></i>
+        </button>
+    </div>
+
+    <div class="format-help-popup" id="formatHelp">
+        <div class="popup-content">
+            <button class="close-popup" id="closeHelp">
+                <i class='bx bx-x'></i>
+            </button>
+            <h3><i class='bx bx-info-circle'></i> Location Format Help</h3>
+            <p>Enter location in this format:</p>
+            <div class="format-example">
+                <strong>City, Country Code</strong>
+                <div class="examples">
+                    <span class="example">London, GB</span>
+                    <span class="example">New York, US</span>
+                    <span class="example">Tokyo, JP</span>
+                    <span class="example">Sydney, AU</span>
+                </div>
             </div>
+            <p class="note">Tip: You can also enter just city name for major cities.</p>
+            <button class="got-it-btn" id="gotItBtn">Got it!</button>
         </div>
     </div>
 
@@ -55,64 +71,78 @@
             <div class="pic-gradient"></div>
             <div class="today-info">
                 <h2>Wednesday</h2>
-                <span class="date">21 January 2026</span>
-                <div class="location">
+                <span>21 January 2026</span>
+                <div>
                     <i class='bx bx-current-location'></i>
-                    <span>India, IN</span>
+                    <span id="locationName">India, IN</span>
+                    <button class="format-help-btn" id="showFormatHelp" title="Show Format Help">
+                        <i class='bx bx-help-circle'></i>
+                    </button>
                 </div>
             </div>
             <div class="today-weather">
-                <i class='bx bx-sun weather-icon'></i>
                 <h1 class="weather-temp">
                     25°C
                 </h1>
-                <h3 class="weather-desc">Sunny</h3>
+                <h3>Sunny</h3>
             </div>
         </div>
 
         <div class="right-info">
-            <div class="day-info">
-                <div class="weather-stats">
-                    <div class="stat">
-                        <span class="title">PRECIPITATION</span>
-                        <span class="value">0 %</span>
+            <div class="weather-stats-container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class='bx bx-droplet'></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-title">Precipitation</span>
+                            <span class="stat-value" id="precipitationValue">4%</span>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <span class="title">HUMIDITY</span>
-                        <span class="value">0 %</span>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class='bx bx-cloud-rain'></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-title">Humidity</span>
+                            <span class="stat-value" id="humidityValue">34%</span>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <span class="title">WIND SPEED</span>
-                        <span class="value">0 km/h</span>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class='bx bx-wind'></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-title">Wind Speed</span>
+                            <span class="stat-value" id="windSpeedValue">6 km/h</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="forecast-section">
-                <h3 class="section-title">5-Day Forecast</h3>
-                <ul class="days-list">
-                    <li class="day-item">
-                        <i class='bx bx-cloud'></i>
-                        <span class="day-name">Sat</span>
-                        <span class="day-temp">0°C</span>
-                    </li>
-                    <li class="day-item">
-                        <i class='bx bx-sun'></i>
-                        <span class="day-name">Sun</span>
-                        <span class="day-temp">0°C</span>
-                    </li>
-                    <li class="day-item">
-                        <i class='bx bx-cloud-rain'></i>
-                        <span class="day-name">Mon</span>
-                        <span class="day-temp">0°C</span>
-                    </li>
-                    <li class="day-item">
-                        <i class='bx bx-cloud-drizzle'></i>
-                        <span class="day-name">Tue</span>
-                        <span class="day-temp">0°C</span>
-                    </li>
-                </ul>
-            </div>
+            <ul class="days-list">
+                <li>
+                    <i class='bx bx-cloud'></i>
+                    <span>Sat</span>
+                    <span class="day-temp">23°C</span>
+                </li>
+                <li>
+                    <i class='bx bx-sun'></i>
+                    <span>Sun</span>
+                    <span class="day-temp">28°C</span>
+                </li>
+                <li>
+                    <i class='bx bx-cloud-rain'></i>
+                    <span>Mon</span>
+                    <span class="day-temp">02°C</span>
+                </li>
+                <li>
+                    <i class='bx bx-cloud-drizzle'></i>
+                    <span>Tue</span>
+                    <span class="day-temp">14°C</span>
+                </li>
+            </ul>
 
             <div class="btn-container">
                 <button class="loc-button">
